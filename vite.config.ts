@@ -8,7 +8,11 @@ const config: UserConfig = {
     alias: {
       "@lib": path.resolve(__dirname, "./src/lib"),
       "@store": path.resolve(__dirname, "./src/stores/store.ts"),
+      "@src": path.resolve(__dirname, "./src/"),
     },
+  },
+  server: {
+    port: 8000,
   },
 };
 

@@ -14,8 +14,8 @@ const authLink = setContext((_operation, prevContext) => {
     token = localStorage.getItem("token") || null;
   }
 
-  console.trace("_operation", _operation);
-  console.trace("prevContext", prevContext);
+  console.log("_operation", _operation);
+  console.log("prevContext", prevContext);
 
   const { headers } = prevContext;
 
@@ -30,12 +30,12 @@ const authLink = setContext((_operation, prevContext) => {
 const errorLink = onError(({ graphQLErrors, networkError }) => {
   if (graphQLErrors) {
     graphQLErrors.forEach((message, locations, path) => {
-      console.trace(`[GraphQL error]: Message: ${message}, Location: ${locations}, Path: ${path}`);
+      console.log(`[GraphQL error]: Message: ${message}, Location: ${locations}, Path: ${path}`);
     });
   }
 
   if (networkError) {
-    console.trace(`[Network error]: ${networkError}`);
+    console.log(`[Network error]: ${networkError}`);
   }
 });
 
