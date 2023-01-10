@@ -1,5 +1,5 @@
 <script async script lang="ts">
-  import { setClient } from "svelte-apollo";
+  import { setClient, type ReadableResult } from "svelte-apollo";
   import client from "@lib/apollo";
   import { gql, type ApolloQueryResult } from "@apollo/client/core";
   import { query, type ReadableQuery, restore, subscribe } from "svelte-apollo";
@@ -19,7 +19,7 @@
     }
   `;
 
-  const allUsers = subscribe(queryAllUsers);
+  const allUsers = subscribe(queryAllUsers) as ReadableResult<AllUsers>;
   console.log("allUsers", allUsers);
   console.log("$allUsers", $allUsers);
 </script>

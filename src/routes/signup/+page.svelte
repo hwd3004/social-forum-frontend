@@ -18,7 +18,8 @@
 
   const handleSubmit = async (event: Event) => {
     try {
-      await signup({ variables: { ...user } });
+      const response = await signup({ variables: { ...user } });
+      console.log(response);
     } catch (error) {
       console.log(error);
     }
@@ -44,7 +45,6 @@
     <input on:change={handleChange} type="text" name="username" placeholder="username" />
     <input on:change={handleChange} type="password" name="password" placeholder="password" />
     <input on:change={handleChange} type="text" name="email" placeholder="email" />
-    <!-- <input type="submit" /> -->
     <button>submit</button>
   </form>
 </div>
